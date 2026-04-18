@@ -16,7 +16,6 @@ public class BankAppThi  {
 
         for (int i = 0; i < m-1; i++) {
             System.out.print("Nhap accountNumber: ");
-            acc = scanner.next();
         }
 
 
