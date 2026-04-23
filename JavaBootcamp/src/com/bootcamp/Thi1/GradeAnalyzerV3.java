@@ -40,6 +40,9 @@ public class GradeAnalyzerV3 {
                 diemThapNhat = diemSo[i];              
             }
 
+            if (diemSo[i] >= 5) {
+                soLuongDau++;
+            }
             String xepLoai = (diemSo[i] >= 5) ? "Dau" : "Rot";
             System.out.printf("Sv thu %d  %.1f -> %s\n", (i+1), diemSo[i], xepLoai); 
 
@@ -50,6 +53,11 @@ public class GradeAnalyzerV3 {
         System.out.printf("CAO NHAT: %.1f\n", diemCaoNhat);
         System.out.printf("THAP NHAT: %.1f\n", diemThapNhat);
         System.out.printf("TRUNG BINH: %.1f\n", (tong / soLuong));
+        
+        double phanTramDau = (double) soLuongDau / soLuong * 100;
+        double phanTramRot = 100 - phanTramDau;
+        System.out.printf("TI LE DAU: %.1f%%\n", phanTramDau);
+        System.out.printf("TI LE ROT: %.1f%%\n", phanTramRot);
 
         scanner.close();
     }
