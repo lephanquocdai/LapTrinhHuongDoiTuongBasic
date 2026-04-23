@@ -15,9 +15,11 @@ public class CalculatorV2 {
 
        System.out.print("Chon phep toan op (+,-,*,/): ");
        char phepTinh = scanner.next().charAt(0);
+       scanner.nextLine(); // Đọc bỏ dòng trống sau khi nhập phepTinh
 
        double ketQua = 0;
        boolean thanhCong = true;
+       System.out.print("Nhap ghi chu: ");
        String ghiChu = scanner.nextLine();
 
        switch (phepTinh) {
@@ -31,14 +33,12 @@ public class CalculatorV2 {
                 ketQua = so1 * so2;
                 break;
             case '/':
-                if (so2 == 0) {
-                    System.out.println("LOI: KHONG THE CHIA CHO O. VUI LONG NHAP LAI SO2!");
-                    thanhCong = false;
+                while (so2 == 0) {
+                    System.out.println("LOI: KHONG THE CHIA CHO 0. VUI LONG NHAP LAI SO2!");
                     System.out.print("Nhap lai so2: ");
-                    double so = scanner.nextDouble();
-                } else {
-                    ketQua = so1/so2;
+                    so2 = scanner.nextDouble();
                 }
+                ketQua = so1 / so2;
                 break;
             default:
                 System.out.println("Loi: Phep tinh khong hop le!");

@@ -33,8 +33,8 @@ public class BankAppThi  {
         accB.withdraw(300);
         accB.display();
 
-        // System.out.println("So du TK001: " + accA.getBalance() + " VND");
-        // System.out.println("So du TK002: " + accB.getBalance() + " VND");
+        System.out.println("So du TK001: " + accA.getBalance() + " VND");
+        System.out.println("So du TK002: " + accB.getBalance() + " VND");
         }
 
 }
