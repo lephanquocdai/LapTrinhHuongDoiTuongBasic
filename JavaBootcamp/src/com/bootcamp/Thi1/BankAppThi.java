@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class BankAppThi  {
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int m = 0;
         do {
             System.out.print("Nhap m: ");
-            int m1 = scanner.nextInt();
+            int m1 = sc.nextInt();
         } while ( m > 1 || m == 1 );
 
         BankAccountThi[] ds = new BankAccountThi[m];
