@@ -12,7 +12,7 @@ public class ShopAppThi {
         do {
             System.out.print("Nhap so tien: ");
             while (!sc.hasNextDouble()) {
-                System.out.print("sai kieu, nhap lai: ");
+                System.out.print("Sai kieu, nhap lai: ");
                 sc.next();
             }
             amount = sc.nextDouble();
