@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class LibraryAppThi {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int d;
         BorrowableDoc[] bDocs = new BorrowableDoc[4];
 
@@ -16,7 +16,7 @@ public class LibraryAppThi {
 
         do {
             System.out.print("Nhap so ngay muon: ");
-            d = scanner.nextInt();
+            d = sc.nextInt();
         } while (d < 1);
 
 
