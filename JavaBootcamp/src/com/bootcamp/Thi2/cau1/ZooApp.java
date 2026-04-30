@@ -21,7 +21,7 @@ public class ZooApp {
             animal.displayInfo();
             if (animal instanceof Dog) {
                 Dog dog = (Dog) animal;
-                dog.fecht();
+                dog.fetch();
             } else {
                 Cat cat = (Cat) animal;
                 cat.scratch();

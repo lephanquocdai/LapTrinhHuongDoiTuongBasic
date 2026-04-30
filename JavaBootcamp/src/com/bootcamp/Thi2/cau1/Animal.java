@@ -7,15 +7,15 @@ public class Animal {
         this.name = name;
     }
 
-    public void  makeSound(){
-        System.out.println(name + "phat ra mot am thanh la...");
+    public void makeSound() {
+        System.out.println(name + " phat ra mot am thanh la...");
     }
 
-    public void eat(){
-        System.out.println(name + "dang an...");
+    public void eat() {
+        System.out.println(name + " dang an...");
     }
 
-    public void displayInfo(){
+    public void displayInfo() {
         System.out.println("Dong vat: " + name);
     }
 }

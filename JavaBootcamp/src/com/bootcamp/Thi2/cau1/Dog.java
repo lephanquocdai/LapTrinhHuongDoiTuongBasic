@@ -6,20 +6,19 @@ public class Dog extends Animal {
 
     public Dog(String name, String breed) {
         super(name);
-        //TODO Auto-generated constructor stub
         this.breed = breed;
     }
     @Override
-    public void makeSound(){
+    public void makeSound() {
         System.out.println(name + " gau gau...");
     }
 
-    public void fecht(){
+    public void fetch() {
         System.out.println(name + " dang nhat bong ve.");
     }
 
     @Override
-    public void displayInfo(){
+    public void displayInfo() {
         super.displayInfo();
         System.out.println("Giong: " + breed);
     }
