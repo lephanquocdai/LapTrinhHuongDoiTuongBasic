@@ -8,7 +8,7 @@ public class ShopAppThi {
         double amount;
 
         System.out.println("=== CUA HANG TRUC TUYEN ===");
-        
+
         do {
             System.out.print("Nhap so tien: ");
             while (!sc.hasNextDouble()) {
@@ -16,14 +16,11 @@ public class ShopAppThi {
                 sc.next();
             }
             amount = sc.nextDouble();
-        } while  ( amount <= 0);
+        } while (amount <= 0);
 
-
-
-        System.out.print("Chon phuong thuc thanh toan (momo/cash):");
+        System.out.print("Chon phuong thuc thanh toan (momo/cash): ");
         String paymentType = sc.next();
 
-        // Factory tạo PaymentMethod
         PaymentMethodThi payment = PaymentFactoryThi.createPaymentMethod(paymentType);
 
         payment.pay(amount);
