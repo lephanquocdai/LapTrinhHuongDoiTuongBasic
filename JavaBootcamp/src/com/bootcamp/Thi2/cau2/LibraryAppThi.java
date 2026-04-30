@@ -24,7 +24,7 @@ public class LibraryAppThi {
         for (BorrowableDoc bDoc : bDocs) {
             bDoc.display();
             totalPhi += bDoc.getBorrowFee(d);
-        } 
+        }
         System.out.println("\n=====Tong phi====="); 
         System.out.printf("Tong phi: %.0f VND\n" , totalPhi); 
     }
