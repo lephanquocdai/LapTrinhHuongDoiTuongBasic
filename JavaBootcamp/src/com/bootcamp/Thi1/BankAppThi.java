@@ -2,39 +2,40 @@ package com.bootcamp.Thi1;
 
 import java.util.Scanner;
 
-public class BankAppThi  {
-    
+public class BankAppThi {
+    private static final String HEADER = "=== Chuong trinh quan ly ngan hang ===";
+    private static final String CURRENCY = "VND";
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int m = 0;
-        do {
-            System.out.print("Nhap m: ");
-            int m1 = sc.nextInt();
-        } while ( m > 1 || m == 1 );
-
-        BankAccountThi[] ds = new BankAccountThi[m];
-
-        for (int i = 0; i < m-1; i++) {
-            System.out.print("Nhap accountNumber: ");
+        Scanner scanner = new Scanner(System.in);
+        try {
+            demonstrateBankOperations(scanner);
+        } finally {
+            scanner.close();
         }
+    }
 
-
-
-        System.out.println("=== Chuong trinh quan ly ngan hang ===\n");
+    private static void demonstrateBankOperations(Scanner scanner) {
+        System.out.println(HEADER);
         System.out.println("So object hien tai: " + BankAccountThi.getTotalCreated());
-        BankAccountThi accA = new BankAccountThi("A1", "An", -50);
-        BankAccountThi accB = new BankAccountThi("B1", "Binh", 1000);
+
+        BankAccountThi accountA = new BankAccountThi("A1", "An", -50);
+        BankAccountThi accountB = new BankAccountThi("B1", "Binh", 1000);
         System.out.println("Tong object: " + BankAccountThi.getTotalCreated());
+
         System.out.println("--- Giao dich A1 ---");
-        accA.deposit(250);
-        accA.display();
+        accountA.deposit(250);
+        accountA.display();
 
         System.out.println("--- Giao dich B1 ---");
-        accB.withdraw(300);
-        accB.display();
+        accountB.withdraw(300);
+        accountB.display();
 
-        System.out.println("So du TK001: " + accA.getBalance() + " VND");
-        System.out.println("So du TK002: " + accB.getBalance() + " VND");
-        }
+        displayAccountBalances(accountA, accountB);
+    }
 
+    private static void displayAccountBalances(BankAccountThi accountA, BankAccountThi accountB) {
+        System.out.println("So du TK001: " + accountA.getBalance() + " " + CURRENCY);
+        System.out.println("So du TK002: " + accountB.getBalance() + " " + CURRENCY);
+    }
 }
