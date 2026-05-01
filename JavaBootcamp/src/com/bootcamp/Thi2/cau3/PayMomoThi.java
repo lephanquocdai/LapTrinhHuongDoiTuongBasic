@@ -11,4 +11,4 @@ public class PayMomoThi implements PaymentMethodThi {
         System.out.println(PAYMENT_METHOD + " " + PAYING_MESSAGE + amount + CURRENCY);
         System.out.println(SUCCESS_MESSAGE);
     }
-
+}

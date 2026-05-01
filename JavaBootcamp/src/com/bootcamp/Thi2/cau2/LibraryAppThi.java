@@ -52,3 +52,4 @@ public class LibraryAppThi {
         System.out.println("\n" + TOTAL_HEADER);
         System.out.printf(TOTAL_FORMAT, totalFee);
     }
+}
