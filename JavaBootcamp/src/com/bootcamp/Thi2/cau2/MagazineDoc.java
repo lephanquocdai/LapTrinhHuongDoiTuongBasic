@@ -11,5 +11,5 @@ public class MagazineDoc extends BorrowableDoc {
     public double getBorrowFee(int days) {
         return MAGAZINE_FEE_PER_DAY * days;
     }
-
+    
 }

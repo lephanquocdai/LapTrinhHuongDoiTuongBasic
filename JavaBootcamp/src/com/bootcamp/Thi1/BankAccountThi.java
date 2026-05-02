@@ -34,8 +34,8 @@ public class BankAccountThi {
 
     public static int getTotalCreated() {
         return totalCreated;
-
     }
+
     public void withdraw(double amount) {
         if (amount <= 0) {
             System.out.println("So tien rut phai lon hon 0!");

@@ -35,8 +35,8 @@ public class CalculatorV2 {
         calculateAndDisplay(number1, number2, operator, note, scanner);
     }
 
-    private static void calculateAndDisplay(double number1, double number2, 
-                                           char operator, String note, Scanner scanner) {
+    private static void calculateAndDisplay(double number1, double number2,
+                                            char operator, String note, Scanner scanner) {
         double result = 0;
         boolean isValid = true;
 

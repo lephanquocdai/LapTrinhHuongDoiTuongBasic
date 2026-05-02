@@ -32,7 +32,7 @@ public class GradeAnalyzerV3 {
     private static double[] inputGrades(Scanner scanner, int studentCount) {
         double[] grades = new double[studentCount];
         System.out.println("===Nhap diem===");
-        
+
         for (int i = 0; i < studentCount; i++) {
             grades[i] = inputValidGrade(scanner, i + 1);
         }
@@ -59,7 +59,7 @@ public class GradeAnalyzerV3 {
         System.out.println("===Bang xep hang===");
         for (int i = 0; i < grades.length; i++) {
             String status = getStatus(grades[i]);
-            System.out.printf("SV thu %d  " + DECIMAL_FORMAT + " -> %s\n", 
+            System.out.printf("SV thu %d  " + DECIMAL_FORMAT + " -> %s\n",
                             (i + 1), grades[i], status);
         }
     }
