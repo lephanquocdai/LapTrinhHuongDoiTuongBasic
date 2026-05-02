@@ -13,7 +13,11 @@ public abstract class BorrowableDoc {
     public abstract double getBorrowFee(int days);
 
     public void display() {
-        System.out.printf("Tieu de: %-15s | Code: %-10s | Borrow: %.0f VND\n", title, code, getBorrowFee(3));
+        System.out.printf("Tieu de: %-15s | Code: %-10s\n", title, code);
+    }
+
+    public void display(int days) {
+        System.out.printf("Tieu de: %-15s | Code: %-10s | Borrow (%d days): %.0f VND\n", title, code, days, getBorrowFee(days));
     }
 
     public String getTitle() {

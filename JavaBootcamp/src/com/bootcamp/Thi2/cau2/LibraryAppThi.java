@@ -22,7 +22,7 @@ public class LibraryAppThi {
 
         double totalPhi = 0;
         for (BorrowableDoc bDoc : bDocs) {
-            bDoc.display();
+            bDoc.display(d);
             totalPhi += bDoc.getBorrowFee(d);
         }
         System.out.println("\n=====Tong phi====="); 
