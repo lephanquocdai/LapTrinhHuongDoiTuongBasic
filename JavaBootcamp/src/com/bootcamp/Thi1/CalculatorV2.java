@@ -27,8 +27,16 @@ public class CalculatorV2 {
 
         System.out.print("Chon phep toan (+,-,*,/): ");
         char operator = scanner.next().charAt(0);
-        scanner.nextLine();
 
+        // Validate and process based on operator type
+        if (operator == '/' && number2 == 0) {
+            number2 = validateDivisor(number2, scanner);
+            if (number2 == 0) {
+                return;
+            }
+        }
+
+        scanner.nextLine(); // Clear buffer
         System.out.print("Nhap ghi chu: ");
         String note = scanner.nextLine();
 
@@ -39,6 +47,13 @@ public class CalculatorV2 {
                                             char operator, String note, Scanner scanner) {
         double result = 0;
         boolean isValid = true;
+
+        if (operator == '/') {
+            number2 = validateDivisor(number2, scanner);
+            if (number2 == 0) {
+                return;
+            }
+        }
 
         switch (operator) {
             case '+':
@@ -51,7 +66,6 @@ public class CalculatorV2 {
                 result = number1 * number2;
                 break;
             case '/':
-                number2 = validateDivisor(number2, scanner);
                 result = number1 / number2;
                 break;
             default:

@@ -8,7 +8,8 @@ public class GradeAnalyzerV3 {
     private static final int PASSING_GRADE = 5;
     private static final String PASSING = "Dau";
     private static final String FAILING = "Rot";
-    private static final String DECIMAL_FORMAT = "%.1f";
+    private static final String DECIMAL_FORMAT_1 = "%.1f";
+    private static final String DECIMAL_FORMAT_2 = "%.2f";
     private static final String PERCENTAGE_FORMAT = "%.1f%%";
 
     public static void main(String[] args) {
@@ -59,7 +60,7 @@ public class GradeAnalyzerV3 {
         System.out.println("===Bang xep hang===");
         for (int i = 0; i < grades.length; i++) {
             String status = getStatus(grades[i]);
-            System.out.printf("SV thu %d  " + DECIMAL_FORMAT + " -> %s\n",
+            System.out.printf("SV thu %d  " + DECIMAL_FORMAT_1 + " -> %s\n",
                             (i + 1), grades[i], status);
         }
     }
@@ -88,9 +89,9 @@ public class GradeAnalyzerV3 {
         double failingPercentage = 100 - passingPercentage;
 
         System.out.println("--------------------");
-        System.out.printf("CAO NHAT: " + DECIMAL_FORMAT + "\n", maxGrade);
-        System.out.printf("THAP NHAT: " + DECIMAL_FORMAT + "\n", minGrade);
-        System.out.printf("TRUNG BINH: " + DECIMAL_FORMAT + "\n", average);
+        System.out.printf("CAO NHAT: " + DECIMAL_FORMAT_1 + "\n", maxGrade);
+        System.out.printf("THAP NHAT: " + DECIMAL_FORMAT_1 + "\n", minGrade);
+        System.out.printf("TRUNG BINH: " + DECIMAL_FORMAT_2 + "\n", average);
         System.out.printf("TI LE DAU: " + PERCENTAGE_FORMAT + "\n", passingPercentage);
         System.out.printf("TI LE ROT: " + PERCENTAGE_FORMAT + "\n", failingPercentage);
     }

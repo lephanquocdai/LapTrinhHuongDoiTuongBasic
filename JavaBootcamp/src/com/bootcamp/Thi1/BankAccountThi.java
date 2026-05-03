@@ -1,7 +1,7 @@
 package com.bootcamp.Thi1;
 
 public class BankAccountThi {
-    private static final String APP_NAME = "NGAN HANG DICH VU";
+    public static final String APP_NAME = "NGAN HANG DICH VU";
     private static final double MINIMUM_BALANCE = 0.0;
     private static final String CURRENCY = "VND";
 
@@ -12,14 +12,19 @@ public class BankAccountThi {
     private double balance;
 
     public BankAccountThi(String accNum, String name, double initialBalance) {
+        if (initialBalance < 0) {
+            this.balance = MINIMUM_BALANCE;
+            System.out.println("So du ban dau khong duoc am. Da set ve 0.");
+        } else {
+            this.balance = initialBalance;
+        }
         this.accountNumber = accNum;
         this.ownerName = name;
-        this.balance = (initialBalance < 0) ? MINIMUM_BALANCE : initialBalance;
-        if (initialBalance < 0) {
-            System.out.println("So du ban dau khong duoc am. Da set ve 0.");
-        }
         totalCreated++;
-        System.out.println("Da tao moi. Tong so object: " + totalCreated);
+    }
+
+    public BankAccountThi() {
+        this("", "", 0.0);
     }
 
     public void deposit(double amount) {
