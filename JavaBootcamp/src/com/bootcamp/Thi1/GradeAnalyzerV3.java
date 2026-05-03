@@ -70,18 +70,14 @@ public class GradeAnalyzerV3 {
     }
 
     private static void displayStatistics(double[] grades) {
-        double total = 0;
-        double maxGrade = grades[0];
-        double minGrade = grades[0];
+        double total = 0, maxGrade = grades[0], minGrade = grades[0];
         int passingCount = 0;
 
         for (double grade : grades) {
             total += grade;
             maxGrade = Math.max(maxGrade, grade);
             minGrade = Math.min(minGrade, grade);
-            if (grade >= PASSING_GRADE) {
-                passingCount++;
-            }
+            if (grade >= PASSING_GRADE) passingCount++;
         }
 
         double average = total / grades.length;

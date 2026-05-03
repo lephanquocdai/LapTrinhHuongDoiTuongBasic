@@ -21,39 +21,25 @@ public class CalculatorV2 {
         System.out.println(HEADER);
         System.out.print("Nhap so1: ");
         double number1 = scanner.nextDouble();
-
         System.out.print("Nhap so2: ");
         double number2 = scanner.nextDouble();
-
         System.out.print("Chon phep toan (+,-,*,/): ");
         char operator = scanner.next().charAt(0);
 
-        // Validate and process based on operator type
         if (operator == '/' && number2 == 0) {
             number2 = validateDivisor(number2, scanner);
-            if (number2 == 0) {
-                return;
-            }
+            if (number2 == 0) return;
         }
 
-        scanner.nextLine(); // Clear buffer
+        scanner.nextLine();
         System.out.print("Nhap ghi chu: ");
         String note = scanner.nextLine();
-
-        calculateAndDisplay(number1, number2, operator, note, scanner);
+        calculateAndDisplay(number1, number2, operator, note);
     }
 
-    private static void calculateAndDisplay(double number1, double number2,
-                                            char operator, String note, Scanner scanner) {
+    private static void calculateAndDisplay(double number1, double number2, char operator, String note) {
         double result = 0;
         boolean isValid = true;
-
-        if (operator == '/') {
-            number2 = validateDivisor(number2, scanner);
-            if (number2 == 0) {
-                return;
-            }
-        }
 
         switch (operator) {
             case '+':

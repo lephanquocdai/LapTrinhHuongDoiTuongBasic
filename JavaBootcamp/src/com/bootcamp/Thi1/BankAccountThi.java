@@ -12,14 +12,10 @@ public class BankAccountThi {
     private double balance;
 
     public BankAccountThi(String accNum, String name, double initialBalance) {
-        if (initialBalance < 0) {
-            this.balance = MINIMUM_BALANCE;
-            System.out.println("So du ban dau khong duoc am. Da set ve 0.");
-        } else {
-            this.balance = initialBalance;
-        }
         this.accountNumber = accNum;
         this.ownerName = name;
+        this.balance = initialBalance < 0 ? MINIMUM_BALANCE : initialBalance;
+        if (initialBalance < 0) System.out.println("So du ban dau khong duoc am. Da set ve 0.");
         totalCreated++;
     }
 
@@ -47,13 +43,11 @@ public class BankAccountThi {
             return;
         }
         if (amount > this.balance) {
-            System.out.println("So du khong du!");
-            System.out.println("So du hien co: " + this.balance + " " + CURRENCY);
+            System.out.println("So du khong du! So du hien co: " + this.balance + " " + CURRENCY);
             return;
         }
         this.balance -= amount;
-        System.out.println("Da rut " + amount + " " + CURRENCY);
-        System.out.println("So du con lai: " + this.balance + " " + CURRENCY);
+        System.out.println("Da rut " + amount + " " + CURRENCY + ". So du con lai: " + this.balance + " " + CURRENCY);
     }
 
     public String getAccountNumber() {
@@ -70,8 +64,7 @@ public class BankAccountThi {
 
     public void display() {
         System.out.println("\n=== Thong tin tai khoan ===");
-        System.out.println("So TK: " + accountNumber);
-        System.out.println("Chu TK: " + ownerName);
+        System.out.println("So TK: " + accountNumber + " | Chu TK: " + ownerName);
         System.out.printf("So du: %.2f %s\n", balance, CURRENCY);
         System.out.println("===========================\n");
     }
