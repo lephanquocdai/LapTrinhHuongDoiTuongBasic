@@ -14,8 +14,8 @@ public class ZooApp {
     private static Animal[] initializeZoo() {
         System.out.println(HEADER);
         Animal[] zoo = new Animal[ZOO_SIZE];
-        zoo[0] = new Dog("Lulu", "Golden Retriever");
-        zoo[1] = new Cat("Mimi");
+        zoo[0] = new Dog("Aaaaaa", "Golden Retriever");
+        zoo[1] = new Cat("Bbbbbb");
         zoo[2] = new Dog("Kiki", "Hugky");
         zoo[3] = new Cat("Layla");
         return zoo;
