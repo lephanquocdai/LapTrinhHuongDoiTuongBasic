@@ -16,8 +16,8 @@ public class ZooApp {
         Animal[] zoo = new Animal[ZOO_SIZE];
         zoo[0] = new Dog("Aaaaaa", "Golden Retriever");
         zoo[1] = new Cat("Bbbbbb");
-        zoo[2] = new Dog("Kiki", "Hugky");
-        zoo[3] = new Cat("Layla");
+        zoo[2] = new Dog("Cccccc", "Hugky");
+        zoo[3] = new Cat("Dddddd");
         return zoo;
     }
 
