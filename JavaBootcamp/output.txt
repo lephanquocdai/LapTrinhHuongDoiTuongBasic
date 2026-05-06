@@ -1,0 +1,3 @@
+Dong 1: Chao mung ban den voi Java Bootcamp!
+Dong 2: Thuc hanh Try-with-resources.
+Dong 3: Tu dong dong tai nguyen that tien loi.
