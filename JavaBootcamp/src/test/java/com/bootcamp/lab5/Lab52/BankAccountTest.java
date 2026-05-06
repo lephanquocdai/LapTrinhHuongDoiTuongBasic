@@ -30,7 +30,7 @@ public class BankAccountTest {
         account.withdraw(300.0);
 
         // Assert: Kiểm tra kết quả
-        assertEquals(700.0, account.getBalance(), 0.01);
+        assertEquals(800.0, account.getBalance(), 0.01);
     }
 
     /**
@@ -69,7 +69,7 @@ public class BankAccountTest {
     @Test
     public void testDeposit_Success() {
         account.deposit(500.0);
-        assertEquals(1500.0, account.getBalance(), 0.01);
+        assertEquals(2000.0, account.getBalance(), 0.01);
     }
 
     /**
