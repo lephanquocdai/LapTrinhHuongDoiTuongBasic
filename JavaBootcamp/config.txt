@@ -1,0 +1,6 @@
+# Configuration File
+server.port=8080
+db.url=jdbc:mysql://localhost:3306/mydb
+db.user=admin
+db.password=secret123
+app.name=Java Bootcamp Lab 5
