@@ -9,12 +9,20 @@ public class SecureCalculator {
 
         System.out.println("=== MAY TINH BAT TU ===\n");
 
+        int a = 0;
         while (true) {
             try {
-                // Vung nguy hiem (Risky Zone)
                 System.out.print("Nhap so bi chia: ");
-                int a = sc.nextInt();
+                a = sc.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("[ERROR] Loi: Ban nhap chu cai! Vui long nhap so.");
+                sc.nextLine();
+            }
+        }
 
+        while (true) {
+            try {
                 System.out.print("Nhap so chia: ");
                 int b = sc.nextInt();
 
@@ -36,7 +44,8 @@ public class SecureCalculator {
             } catch (Exception e) {
                 // Luoi bat moi loai loi khong ngo toi
                 System.out.println("[ERROR] Loi he thong: " + e.toString());
-                e.printStackTrace(); // In stack trace de debug
+                e.printStackTrace();
+                break;
             }
         }
 
