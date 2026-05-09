@@ -11,21 +11,22 @@ public class AgeValidator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Nhap nam sinh: ");
-        if (!sc.hasNextInt()) {
-            System.out.println("Loi: Vui long nhap mot so nguyen.");
-            sc.close();
-            return;
-        }
-        
-        int birthYear = sc.nextInt();
-
-        try {
-            int age = calculateAge(birthYear);
-            System.out.println("Tuoi cua ban: " + age);
-
-        } catch (InvalidAgeException e) {
-            System.out.println("Loi: " + e.getMessage());
+        int birthYear;
+        while (true) {
+            System.out.print("Nhap nam sinh: ");
+            if (sc.hasNextInt()) {
+                birthYear = sc.nextInt();
+                try {
+                    int age = calculateAge(birthYear);
+                    System.out.println("Tuoi cua ban: " + age);
+                    break; // Exit loop if everything is valid
+                } catch (InvalidAgeException e) {
+                    System.out.println("Loi: " + e.getMessage());
+                }
+            } else {
+                System.out.println("Loi: Vui long nhap mot so nguyen.");
+                sc.next(); // Clear invalid input
+            }
         }
 
         sc.close();
