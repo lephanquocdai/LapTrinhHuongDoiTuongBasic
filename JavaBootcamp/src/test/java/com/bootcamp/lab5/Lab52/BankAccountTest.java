@@ -30,7 +30,7 @@ public class BankAccountTest {
         account.withdraw(300.0);
 
         // Assert: Kiểm tra kết quả
-        assertEquals(800.0, account.getBalance(), 0.01);
+        assertEquals(700.0, account.getBalance(), 0.01);
     }
 
     /**
@@ -69,7 +69,7 @@ public class BankAccountTest {
     @Test
     public void testDeposit_Success() {
         account.deposit(500.0);
-        assertEquals(2000.0, account.getBalance(), 0.01);
+        assertEquals(1500.0, account.getBalance(), 0.01);
     }
 
     /**
@@ -94,5 +94,53 @@ public class BankAccountTest {
         );
 
         assertTrue(exception.getMessage().contains("khong duoc am"));
+    }
+
+    /**
+     * Test case: Tính lãi suất chính xác
+     */
+    @Test
+    public void testCalculateInterest() {
+        double interest = account.calculateInterest(5.0); // 5% của 1000
+        assertEquals(50.0, interest, 0.01);
+    }
+
+    /**
+     * Test case: Cộng lãi suất vào số dư
+     */
+    @Test
+    public void testApplyInterest() {
+        account.applyInterest(10.0); // 10% của 1000 = 100
+        assertEquals(1100.0, account.getBalance(), 0.01);
+    }
+
+    /**
+     * Test case: Chuyển tiền thành công
+     */
+    @Test
+    public void testTransfer_Success() {
+        BankAccount otherAccount = new BankAccount(500.0);
+        
+        account.transfer(otherAccount, 300.0);
+        
+        assertEquals(700.0, account.getBalance(), 0.01);
+        assertEquals(800.0, otherAccount.getBalance(), 0.01);
+    }
+
+    /**
+     * Test case: Chuyển tiền thất bại do không đủ số dư
+     */
+    @Test
+    public void testTransfer_InsufficientFunds() {
+        BankAccount otherAccount = new BankAccount(500.0);
+        
+        assertThrows(
+            InsufficientFundsException.class,
+            () -> account.transfer(otherAccount, 2000.0)
+        );
+        
+        // Số dư không đổi
+        assertEquals(1000.0, account.getBalance(), 0.01);
+        assertEquals(500.0, otherAccount.getBalance(), 0.01);
     }
 }
