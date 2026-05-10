@@ -7,7 +7,7 @@ public class SecureCalculatorThi {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("=== MAY TINH BAT TU ===\n");
+        System.out.println("=== MAY TINH ===\n");
 
         int a = 0;
         while (true) {
@@ -53,10 +53,9 @@ public class SecureCalculatorThi {
         sc.close();
     }
 
-    // Method co the nem exception
     public static int divide(int a, int b) {
         if (b == 0) {
-            throw new ArithmeticException("Cam chia cho so 0!");
+            throw new ArithmeticException("Khong the chia cho so 0!");
         }
         return a / b;
     }
