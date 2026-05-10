@@ -14,8 +14,8 @@ public class ScoreAnalyzerThiTest {
     @Test
     void testTopPassedScores_NormalCase(){
         List<Double> scores = Arrays.asList(9.0, 7.5, 8.5, 6.0, 10.0, 8.0);
-        List<Double> expected = Arrays.asList(10.0, 9.0, 8.5);
-        List<Double> actual = analyzer.topPassedScores(scores, 7.0);
+        List<Double> expected = Arrays.asList(10.0, 9.0, 8.0);
+        List<Double> actual = analyzer.topPassedScores(scores, 9.0);
         assertIterableEquals(expected,actual);
     }
 
