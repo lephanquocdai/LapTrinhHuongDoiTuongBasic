@@ -7,7 +7,7 @@ public class SecureCalculatorThi {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("=== MAY TINH ===\n");
+        System.out.println("=== MAY TINH DA NANG ===\n");
 
         int a = 0;
         while (true) {
