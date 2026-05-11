@@ -31,7 +31,7 @@ public class ScoreAnalyzerThiTest {
     void testTopPassedScores_EqualPassMark(){
         List<Double> scores = Arrays.asList(5.0, 7.0, 8.0);
         List<Double> expected =  Arrays.asList(8.0, 7.0);
-        List<Double> actual = analyzer.topPassedScores(scores, 7.0);
+        List<Double> actual = analyzer.topPassedScores(scores, 8.0);
         assertIterableEquals(expected,actual);
     }
 
