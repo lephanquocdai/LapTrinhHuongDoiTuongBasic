@@ -40,7 +40,7 @@ public class SecureCalculatorThi {
 
             } catch (ArithmeticException e) {
                 // Xu ly loi toan hoc (Chia 0)
-                System.out.println("[ERROR] Loi toan: " + e.getMessage());
+                System.out.println("[ERROR] Loi phep toan: " + e.getMessage());
 
             } catch (Exception e) {
                 // Luoi bat moi loai loi khong ngo toi
