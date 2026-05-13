@@ -1,37 +1,26 @@
 package com.bootcamp.lab5.Lab52;
 
-import java.util.Objects;
 
 /**
- * BankAccount class manages a bank account's balance and operations.
- * It uses custom exceptions to handle insufficient funds.
+ * BankAccount class - Quản lý tài khoản ngân hàng
+ * Sử dụng custom exception khi số dư không đủ
  */
 public class BankAccount {
     private double balance;
 
-    /**
-     * Initializes a new BankAccount with a starting balance.
-     *
-     * @param initialBalance the initial amount in the account (must be non-negative)
-     * @throws IllegalArgumentException if initialBalance is negative
-     */
-    public BankAccount(final double initialBalance) {
-        if (initialBalance < 0) {
-            throw new IllegalArgumentException("Initial balance cannot be negative");
+    public BankAccount(double balance) {
+        if (balance < 0) {
+            throw new IllegalArgumentException("So du ban dau khong duoc am");
         }
-        this.balance = initialBalance;
+        this.balance = balance;
     }
 
     /**
-     * Internal method to deduct an amount from the balance.
-     *
-     * @param amount the amount to deduct (must be positive)
-     * @throws IllegalArgumentException if amount is non-positive
-     * @throws InsufficientFundsException if amount exceeds current balance
+     * Phương thức nội bộ để trừ tiền (kiểm tra logic và trừ balance)
      */
-    private void debit(final double amount) {
+    private void debit(double amount) {
         if (amount <= 0) {
-            throw new IllegalArgumentException("Amount must be positive");
+            throw new IllegalArgumentException("So tien phai duong");
         }
         if (amount > balance) {
             throw new InsufficientFundsException(balance, amount);
@@ -39,25 +28,14 @@ public class BankAccount {
         this.balance -= amount;
     }
 
-    /**
-     * Withdraws money from the account.
-     *
-     * @param amount the amount to withdraw
-     */
-    public void withdraw(final double amount) {
+    public void withdraw(double amount) {
         debit(amount);
-        System.out.printf("Withdrew %.2f VND. Remaining balance: %.2f VND%n", amount, balance);
+        System.out.println("Da rut " + amount + " VND. So du con: " + balance);
     }
 
-    /**
-     * Deposits money into the account.
-     *
-     * @param amount the amount to deposit (must be positive)
-     * @throws IllegalArgumentException if amount is non-positive
-     */
-    public void deposit(final double amount) {
+    public void deposit(double amount) {
         if (amount <= 0) {
-            throw new IllegalArgumentException("Deposit amount must be positive");
+            throw new IllegalArgumentException("Tien nap phai duong");
         }
         this.balance += amount;
     }
@@ -67,50 +45,46 @@ public class BankAccount {
     }
 
     /**
-     * Calculates interest based on an annual rate.
-     *
-     * @param annualRate annual interest rate (e.g., 5.0 for 5%)
-     * @return the calculated interest amount
-     * @throws IllegalArgumentException if annualRate is negative
+     * Tính tiền lãi dựa trên lãi suất năm
+     * @param annualRate Lãi suất năm (ví dụ: 5.0 cho 5%)
+     * @return Số tiền lãi
      */
-    public double calculateInterest(final double annualRate) {
+    public double calculateInterest(double annualRate) {
         if (annualRate < 0) {
-            throw new IllegalArgumentException("Interest rate cannot be negative");
+            throw new IllegalArgumentException("Lai suat khong duoc am");
         }
         return balance * (annualRate / 100);
     }
 
     /**
-     * Applies annual interest to the account balance.
-     *
-     * @param annualRate annual interest rate
+     * Cộng tiền lãi vào số dư
+     * @param annualRate Lãi suất năm
      */
-    public void applyInterest(final double annualRate) {
+    public void applyInterest(double annualRate) {
         double interest = calculateInterest(annualRate);
         this.balance += interest;
-        System.out.printf("Applied interest: %.2f VND. New balance: %.2f VND%n", interest, balance);
+        System.out.println("Da cong lai: " + interest + " VND. So du moi: " + balance);
     }
 
     /**
-     * Transfers funds to another bank account.
-     *
-     * @param destination the recipient bank account
-     * @param amount the amount to transfer
-     * @throws IllegalArgumentException if destination is null or same as this account
+     * Chuyển tiền sang tài khoản khác
+     * @param destination Tài khoản nhận
+     * @param amount Số tiền chuyển
      */
-    public void transfer(final BankAccount destination, final double amount) {
-        Objects.requireNonNull(destination, "Destination account cannot be null");
-        
+    public void transfer(BankAccount destination, double amount) {
+        if (destination == null) {
+            throw new IllegalArgumentException("Tai khoan dich khong hop le");
+        }
         if (destination == this) {
-            throw new IllegalArgumentException("Cannot transfer to the same account");
+            throw new IllegalArgumentException("Khong the tu chuyen cho chinh minh");
         }
         
-        // Use debit to deduct funds without printing "Withdrew"
+        // Su dung debit de tru tien ma khong in "Da rut"
         this.debit(amount);
         
-        // Deposit into the destination account
+        // Nap vao tai khoan kia
         destination.deposit(amount);
         
-        System.out.printf("Transferred %.2f VND to another account. Remaining balance: %.2f VND%n", amount, balance);
+        System.out.println("Da chuyen " + amount + " VND sang tai khoan khac. So du con: " + balance);
     }
 }
