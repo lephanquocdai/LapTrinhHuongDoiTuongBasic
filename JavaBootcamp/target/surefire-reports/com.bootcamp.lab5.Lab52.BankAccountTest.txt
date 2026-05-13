@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.bootcamp.lab5.Lab52.BankAccountTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s -- in com.bootcamp.lab5.Lab52.BankAccountTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s -- in com.bootcamp.lab5.Lab52.BankAccountTest

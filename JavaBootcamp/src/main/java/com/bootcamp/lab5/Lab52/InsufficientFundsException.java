@@ -1,16 +1,14 @@
 package com.bootcamp.lab5.Lab52;
 
 /**
- * Custom Exception - Kế thừa từ RuntimeException (Unchecked)
- * Được ném khi số dư không đủ để thực hiện rút tiền
+ * Custom Exception thrown when a bank account has insufficient funds for a withdrawal.
  */
 public class InsufficientFundsException extends RuntimeException {
-    private double balance;
-    private double amount;
+    private final double balance;
+    private final double amount;
 
     public InsufficientFundsException(double balance, double amount) {
-        super("Thieu tien! Ban co " + balance + " VND, nhung muon rut " +
-                amount + " VND");
+        super(String.format("Insufficient funds! Current balance: %.2f, Attempted withdrawal: %.2f", balance, amount));
         this.balance = balance;
         this.amount = amount;
     }
