@@ -16,7 +16,7 @@ public class SecureCalculatorThi {
                 a = sc.nextInt();
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("[ERROR] Loi: Ban nhap chu cai! Vui long nhap so.");
+                System.out.println("[ERROR] Loi: Ban da chu cai! Vui long nhap so.");
                 sc.nextLine();
             }
         }
@@ -35,7 +35,7 @@ public class SecureCalculatorThi {
 
             } catch (InputMismatchException e) {
                 // Xu ly loi nhap sai kieu (Chu thay vi so)
-                System.out.println("[ERROR] Loi: Ban nhap chu cai! Vui long nhap so.");
+                System.out.println("[ERROR] Loi: Ban da nhap chu cai! Vui long nhap so.");
                 sc.nextLine(); // QUAN TRONG: Nuot bo dong nhap sai
 
             } catch (ArithmeticException e) {
