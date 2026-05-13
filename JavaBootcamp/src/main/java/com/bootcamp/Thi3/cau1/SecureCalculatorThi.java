@@ -12,11 +12,11 @@ public class SecureCalculatorThi {
         int a = 0;
         while (true) {
             try {
-                System.out.print("Nhap so a: ");
+                System.out.print("Hay nhap so a: ");
                 a = sc.nextInt();
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("[ERROR] Loi: Ban da chu cai! Vui long nhap so.");
+                System.out.println("[ERROR] Loi: Ban da nhap chu cai! Vui long nhap so.");
                 sc.nextLine();
             }
         }
@@ -24,7 +24,7 @@ public class SecureCalculatorThi {
         while (true) {
             try {
 
-                System.out.print("Nhap so b: ");
+                System.out.print("Hay nhap so b: ");
                 int b = sc.nextInt();
 
                 // Logic co the gay loi toan hoc
